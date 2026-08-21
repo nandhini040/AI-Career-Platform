@@ -17,19 +17,24 @@ const Login = () => {
       await login(username, password);
       navigate('/dashboard');
     } catch (err) {
-      if (err.response && err.response.data) {
-        if (err.response.data.detail) {
-          setError(err.response.data.detail);
-        } else {
-          // Extract field-specific errors
-          const errorData = err.response.data;
-          const errorMessages = Object.keys(errorData).map(key => `${key}: ${errorData[key]}`);
-          setError(errorMessages.join(' | '));
-        }
-      } else {
-        setError('Login failed. Please check your connection to the server.');
-      }
-    }
+  const data = err.response?.data;
+
+  if (typeof data === 'string') {
+    setError(data);
+  } else if (data?.detail) {
+    setError(data.detail);
+  } else if (data && typeof data === 'object') {
+    const errorMessages = Object.entries(data)
+      .map(([key, value]) => {
+        const message = Array.isArray(value) ? value.join(', ') : String(value);
+        return `${key}: ${message}`;
+      });
+
+    setError(errorMessages.join(' | '));
+  } else {
+    setError('Login failed. Please check your username and password.');
+  }
+}
   };
 
   return (
@@ -50,7 +55,7 @@ const Login = () => {
           <div className="w-100 animate-fade-in-up" style={{ maxWidth: '420px' }}>
             <div className="mb-5 text-center text-lg-start">
               <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: '#f8fafc' }}>Welcome Back</h1>
-              <p className="text-muted" style={{ fontSize: '1.1rem' }}>Sign in to continue your interview prep.</p>
+              <p style={{ fontSize: '1.1rem', color: '#94a3b8' }}>Sign in to continue your interview prep.</p>
             </div>
             
             {error && <Alert variant="danger" className="mb-4">{error}</Alert>}
@@ -91,6 +96,5 @@ const Login = () => {
       </Row>
     </Container>
   );
-};
-
+}
 export default Login;
