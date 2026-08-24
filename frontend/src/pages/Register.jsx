@@ -20,13 +20,17 @@ const Register = () => {
       await register(username, email, password);
       navigate('/dashboard');
     } catch (err) {
-      if (err.response && err.response.data) {
-        // Extract field-specific errors from Django Rest Framework
-        const errorData = err.response.data;
-        const errorMessages = Object.keys(errorData).map(key => {
+      const data = err.response?.data;
+
+      if (typeof data === 'string') {
+        setError(data);
+      } else if (data?.detail) {
+        setError(data.detail);
+      } else if (data && typeof data === 'object') {
+        const errorMessages = Object.entries(data).map(([key, value]) => {
           const formattedKey = key.charAt(0).toUpperCase() + key.slice(1);
-          const messages = Array.isArray(errorData[key]) ? errorData[key].join(' ') : errorData[key];
-          return `${formattedKey}: ${messages}`;
+          const message = Array.isArray(value) ? value.join(' ') : String(value);
+          return `${formattedKey}: ${message}`;
         });
         setError(errorMessages.join(' | '));
       } else {
