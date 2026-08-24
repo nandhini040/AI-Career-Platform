@@ -1,12 +1,14 @@
 import { useState, useContext } from 'react';
-import { Container, Form, Button, Card, Alert, Row, Col } from 'react-bootstrap';
+import { Container, Form, Button, Card, Alert, Row, Col, InputGroup } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
+import { Eye, EyeOff } from 'lucide-react';
 
 const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const { register } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -79,13 +81,22 @@ const Register = () => {
               </Form.Group>
               <Form.Group id="password" className="mb-4">
                 <Form.Label style={{ color: 'var(--text-muted)' }}>Password</Form.Label>
-                <Form.Control 
-                  type="password" 
-                  required 
-                  value={password} 
-                  onChange={(e) => setPassword(e.target.value)} 
-                  placeholder="Create a strong password" 
-                />
+                <InputGroup>
+                  <Form.Control 
+                    type={showPassword ? "text" : "password"} 
+                    required 
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)} 
+                    placeholder="Create a strong password" 
+                  />
+                  <Button 
+                    variant="outline-secondary" 
+                    onClick={() => setShowPassword(!showPassword)}
+                    style={{ borderColor: 'var(--bs-border-color)', backgroundColor: 'transparent', color: 'var(--text-muted)' }}
+                  >
+                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                  </Button>
+                </InputGroup>
               </Form.Group>
               <Button className="w-100 mt-2 btn-primary py-3 fw-bold" type="submit" style={{ fontSize: '1.1rem' }}>
                 Sign Up
