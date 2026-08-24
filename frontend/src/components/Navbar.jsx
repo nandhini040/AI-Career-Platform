@@ -20,7 +20,7 @@ const Navbar = () => {
   }
 
   return (
-    <BootstrapNavbar expand="lg" className="glass-panel sticky-top" variant="dark">
+    <BootstrapNavbar expand="lg" className="glass-panel sticky-top" variant="light">
       <Container>
         <BootstrapNavbar.Brand as={Link} to="/dashboard" className="d-flex align-items-center gap-2" style={{ fontWeight: '600', letterSpacing: '-0.5px' }}>
           <BrainCircuit color="var(--accent)" size={28} />

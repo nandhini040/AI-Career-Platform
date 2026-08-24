@@ -37,7 +37,7 @@ const ResumeUpload = () => {
       <Row className="justify-content-center">
         <Col lg={8}>
           <div className="text-center mb-4">
-            <h1 className="mb-3 text-white fw-bold">Resume Analyzer</h1>
+            <h1 className="mb-3 fw-bold" style={{ color: 'var(--text-h)' }}>Resume Analyzer</h1>
             <p className="text-muted" style={{ fontSize: '1.1rem' }}>Upload your resume and let our AI tailor your interview experience based on your unique profile.</p>
           </div>
 
@@ -94,7 +94,7 @@ const ResumeUpload = () => {
                       <h5 className="d-flex align-items-center gap-2 mb-3 text-success">
                         <CheckCircle size={20} /> Skills Found
                       </h5>
-                      <p className="mb-0 text-light">{analysis.skill_summary}</p>
+                      <p className="mb-0" style={{ color: 'var(--text)' }}>{analysis.skill_summary}</p>
                     </div>
                   </Col>
                   <Col md={6}>
@@ -102,19 +102,19 @@ const ResumeUpload = () => {
                       <h5 className="d-flex align-items-center gap-2 mb-3 text-danger">
                         <AlertTriangle size={20} /> Missing Skills
                       </h5>
-                      <p className="mb-0 text-light">{analysis.missing_skills}</p>
+                      <p className="mb-0" style={{ color: 'var(--text)' }}>{analysis.missing_skills}</p>
                     </div>
                   </Col>
                 </Row>
 
                 <div className="mb-4">
                   <h5 className="mb-2 text-info">Suggested Roles</h5>
-                  <p className="text-light">{analysis.suitable_job_roles}</p>
+                  <p style={{ color: 'var(--text)' }}>{analysis.suitable_job_roles}</p>
                 </div>
 
                 <div className="mb-4">
                   <h5 className="mb-2 text-warning">Improvements</h5>
-                  <p className="text-light">{analysis.suggested_improvements}</p>
+                  <p style={{ color: 'var(--text)' }}>{analysis.suggested_improvements}</p>
                 </div>
 
                 <Button onClick={() => navigate('/setup')} className="w-100 btn-primary mt-3 py-3">

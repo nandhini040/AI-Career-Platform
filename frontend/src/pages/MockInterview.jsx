@@ -110,7 +110,7 @@ const MockInterview = () => {
     <Container className="mt-5">
       <Row className="mb-4">
         <Col>
-          <h2 className="text-white fw-bold mb-3">Mock Interview</h2>
+          <h2 className="fw-bold mb-3" style={{ color: 'var(--text-h)' }}>Mock Interview</h2>
           <ProgressBar now={progress} label={`${currentQuestionIndex} / ${session.questions.length} completed`} />
         </Col>
       </Row>
@@ -135,7 +135,6 @@ const MockInterview = () => {
                   value={answerText}
                   onChange={(e) => setAnswerText(e.target.value)}
                   placeholder="Type your answer here..."
-                  style={{ backgroundColor: 'rgba(15, 23, 42, 0.6)', color: 'var(--text-h)', border: '1px solid var(--glass-border)' }}
                 />
               </Form.Group>
               <Button onClick={handleSubmitAnswer} disabled={submitting} className="btn-primary w-100 py-3">
@@ -143,23 +142,23 @@ const MockInterview = () => {
               </Button>
             </div>
           ) : (
-            <div className="mt-4 p-4 border rounded" style={{ backgroundColor: 'rgba(15, 23, 42, 0.8)', borderColor: 'var(--glass-border) !important' }}>
+            <div className="mt-4 p-4 border rounded" style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--glass-border) !important' }}>
               <h5 className="text-success mb-4">AI Evaluation</h5>
               <div className="mb-3">
                 <strong className="text-info">Score:</strong> 
-                <span className="ms-2 px-3 py-1 rounded-pill" style={{ backgroundColor: 'rgba(16, 185, 129, 0.2)', color: '#34d399' }}>{feedback.score}/100</span>
+                <span className="ms-2 px-3 py-1 rounded-pill" style={{ backgroundColor: 'rgba(16, 185, 129, 0.2)', color: 'var(--success)' }}>{feedback.score}/100</span>
               </div>
               <div className="mb-3">
                 <strong className="text-success d-block mb-1">Strengths:</strong>
-                <p className="mb-0 text-light">{feedback.feedback_strengths}</p>
+                <p className="mb-0" style={{ color: 'var(--text)' }}>{feedback.feedback_strengths}</p>
               </div>
               <div className="mb-3">
                 <strong className="text-warning d-block mb-1">Areas for Improvement:</strong>
-                <p className="mb-0 text-light">{feedback.feedback_improvements}</p>
+                <p className="mb-0" style={{ color: 'var(--text)' }}>{feedback.feedback_improvements}</p>
               </div>
               <div className="mb-4">
                 <strong className="text-primary d-block mb-1">Ideal Answer:</strong>
-                <p className="mb-0 text-light">{feedback.ideal_answer}</p>
+                <p className="mb-0" style={{ color: 'var(--text)' }}>{feedback.ideal_answer}</p>
               </div>
               <Button onClick={handleNextQuestion} className="btn-primary w-100 py-3 mt-2">
                 {currentQuestionIndex < session.questions.length - 1 ? 'Next Question' : 'Finish Interview'}

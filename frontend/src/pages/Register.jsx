@@ -47,10 +47,10 @@ const Register = () => {
         </Col>
 
         {/* Right Side: Form */}
-        <Col lg={6} className="d-flex align-items-center justify-content-center p-4 p-md-5" style={{ backgroundColor: '#020617', position: 'relative', zIndex: 10 }}>
+        <Col lg={6} className="d-flex align-items-center justify-content-center p-4 p-md-5" style={{ backgroundColor: 'var(--bg-primary)', position: 'relative', zIndex: 10 }}>
           <div className="w-100 animate-fade-in-up" style={{ maxWidth: '420px' }}>
             <div className="mb-5 text-center text-lg-start">
-              <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: '#f8fafc' }}>Join IntervAI</h1>
+              <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: 'var(--text-h)' }}>Join IntervAI</h1>
               <p className="text-muted" style={{ fontSize: '1.1rem' }}>Create an account to start practicing.</p>
             </div>
             
@@ -58,36 +58,33 @@ const Register = () => {
             
             <Form onSubmit={handleSubmit}>
               <Form.Group id="username" className="mb-4">
-                <Form.Label style={{ color: '#cbd5e1' }}>Username</Form.Label>
+                <Form.Label style={{ color: 'var(--text-muted)' }}>Username</Form.Label>
                 <Form.Control 
                   type="text" 
                   required 
                   value={username} 
                   onChange={(e) => setUsername(e.target.value)} 
                   placeholder="Choose a username" 
-                  style={{ backgroundColor: 'rgba(15, 23, 42, 0.8)', border: '1px solid rgba(255,255,255,0.1)' }}
                 />
               </Form.Group>
               <Form.Group id="email" className="mb-4">
-                <Form.Label style={{ color: '#cbd5e1' }}>Email</Form.Label>
+                <Form.Label style={{ color: 'var(--text-muted)' }}>Email</Form.Label>
                 <Form.Control 
                   type="email" 
                   required 
                   value={email} 
                   onChange={(e) => setEmail(e.target.value)} 
                   placeholder="Enter your email" 
-                  style={{ backgroundColor: 'rgba(15, 23, 42, 0.8)', border: '1px solid rgba(255,255,255,0.1)' }}
                 />
               </Form.Group>
               <Form.Group id="password" className="mb-4">
-                <Form.Label style={{ color: '#cbd5e1' }}>Password</Form.Label>
+                <Form.Label style={{ color: 'var(--text-muted)' }}>Password</Form.Label>
                 <Form.Control 
                   type="password" 
                   required 
                   value={password} 
                   onChange={(e) => setPassword(e.target.value)} 
                   placeholder="Create a strong password" 
-                  style={{ backgroundColor: 'rgba(15, 23, 42, 0.8)', border: '1px solid rgba(255,255,255,0.1)' }}
                 />
               </Form.Group>
               <Button className="w-100 mt-2 btn-primary py-3 fw-bold" type="submit" style={{ fontSize: '1.1rem' }}>

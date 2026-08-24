@@ -51,36 +51,34 @@ const Login = () => {
         </Col>
 
         {/* Right Side: Form */}
-        <Col lg={6} className="d-flex align-items-center justify-content-center p-4 p-md-5" style={{ backgroundColor: '#020617', position: 'relative', zIndex: 10 }}>
+        <Col lg={6} className="d-flex align-items-center justify-content-center p-4 p-md-5" style={{ backgroundColor: 'var(--bg-primary)', position: 'relative', zIndex: 10 }}>
           <div className="w-100 animate-fade-in-up" style={{ maxWidth: '420px' }}>
             <div className="mb-5 text-center text-lg-start">
-              <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: '#f8fafc' }}>Welcome Back</h1>
-              <p style={{ fontSize: '1.1rem', color: '#94a3b8' }}>Sign in to continue your interview prep.</p>
+              <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: 'var(--text-h)' }}>Welcome Back</h1>
+              <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)' }}>Sign in to continue your interview prep.</p>
             </div>
             
             {error && <Alert variant="danger" className="mb-4">{error}</Alert>}
             
             <Form onSubmit={handleSubmit}>
               <Form.Group id="username" className="mb-4">
-                <Form.Label style={{ color: '#cbd5e1' }}>Username</Form.Label>
+                <Form.Label style={{ color: 'var(--text-muted)' }}>Username</Form.Label>
                 <Form.Control 
                   type="text" 
                   required 
                   value={username} 
                   onChange={(e) => setUsername(e.target.value)} 
                   placeholder="Enter your username" 
-                  style={{ backgroundColor: 'rgba(15, 23, 42, 0.8)', border: '1px solid rgba(255,255,255,0.1)' }}
                 />
               </Form.Group>
               <Form.Group id="password" className="mb-4">
-                <Form.Label style={{ color: '#cbd5e1' }}>Password</Form.Label>
+                <Form.Label style={{ color: 'var(--text-muted)' }}>Password</Form.Label>
                 <Form.Control 
                   type="password" 
                   required 
                   value={password} 
                   onChange={(e) => setPassword(e.target.value)} 
                   placeholder="Enter your password" 
-                  style={{ backgroundColor: 'rgba(15, 23, 42, 0.8)', border: '1px solid rgba(255,255,255,0.1)' }}
                 />
               </Form.Group>
               <Button className="w-100 mt-2 btn-primary py-3 fw-bold" type="submit" style={{ fontSize: '1.1rem' }}>

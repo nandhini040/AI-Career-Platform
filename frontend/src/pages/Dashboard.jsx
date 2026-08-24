@@ -11,7 +11,7 @@ const Dashboard = () => {
   return (
     <Container className="mt-5 animate-fade-in-up">
       <div className="mb-5 text-center">
-        <h1 className="mb-3 d-flex align-items-center justify-content-center gap-3 text-white fw-bold">
+        <h1 className="mb-3 d-flex align-items-center justify-content-center gap-3 fw-bold" style={{ color: 'var(--text-h)' }}>
           Dashboard <Sparkles color="var(--accent)" />
         </h1>
         {user && <p className="text-muted" style={{ fontSize: '1.2rem' }}>Welcome back, {user.username}! Here's your prep overview.</p>}
